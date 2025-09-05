@@ -3,6 +3,8 @@
 ## 项目简介
 这是一个基于Python后端和React前端的云端共享白板系统，支持多用户实时协作绘图和Markdown文档编辑。
 
+![app](./assert/main.jpg)
+
 ## 功能特性
 
 ### 绘图功能

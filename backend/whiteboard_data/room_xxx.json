@@ -1,0 +1,22 @@
+{
+  "room_id": "xxx",
+  "whiteboard_state": {
+    "draw-1757042053040-user-k0dfb": {
+      "id": "draw-1757042053040-user-k0dfb",
+      "type": "drawing",
+      "data": {
+        "tool": "rectangle",
+        "color": "#ffffff",
+        "strokeWidth": 2,
+        "startX": 374,
+        "startY": 174.5,
+        "endX": 580,
+        "endY": 290.5,
+        "path": []
+      },
+      "timestamp": 1757042053040,
+      "userId": "user-k0dfb"
+    }
+  },
+  "last_updated": "2025-09-05T11:14:13.048390"
+}
