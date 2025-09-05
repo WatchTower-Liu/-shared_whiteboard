@@ -1,0 +1,322 @@
+.markdown-editor {
+  position: absolute;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  min-height: 200px;
+  z-index: 10;
+}
+
+.markdown-editor.dragging {
+  opacity: 0.9;
+  cursor: move;
+}
+
+.markdown-header {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  color: white;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px 6px 0 0;
+  cursor: move;
+}
+
+.markdown-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.markdown-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.markdown-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  font-size: 16px;
+}
+
+.edit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.delete-btn:hover {
+  background-color: rgba(231, 76, 60, 0.5);
+}
+
+.markdown-edit-mode {
+  padding: 12px;
+}
+
+.markdown-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  resize: vertical;
+  margin-bottom: 10px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.markdown-textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+}
+
+.markdown-preview {
+  padding: 10px;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  min-height: 100px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.markdown-preview h1, .markdown-preview h2, .markdown-preview h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+}
+
+.markdown-preview p {
+  margin: 0.5em 0;
+  color: var(--text-primary);
+}
+
+.markdown-preview code {
+  background-color: var(--bg-primary);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #69b7ff;
+}
+
+.markdown-preview pre {
+  background-color: var(--bg-primary);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-preview pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.markdown-preview blockquote {
+  border-left: 3px solid var(--accent-color);
+  padding-left: 10px;
+  margin-left: 0;
+  color: var(--text-secondary);
+}
+
+.markdown-preview a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.markdown-preview a:hover {
+  text-decoration: underline;
+}
+
+.markdown-preview table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.markdown-preview th, .markdown-preview td {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  text-align: left;
+}
+
+.markdown-preview th {
+  background-color: var(--bg-tertiary);
+  font-weight: bold;
+}
+
+.markdown-preview ul, .markdown-preview ol {
+  margin-left: 20px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.save-btn {
+  background-color: #2d7a4e;
+  color: white;
+  border: 1px solid #2d7a4e;
+}
+
+.save-btn:hover {
+  background-color: #3a9961;
+  border-color: #3a9961;
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.cancel-btn:hover {
+  background-color: #505050;
+  border-color: var(--accent-color);
+}
+
+.markdown-view-mode {
+  padding: 15px;
+  min-height: 100px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.markdown-view-mode:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.markdown-view-mode h1, 
+.markdown-view-mode h2, 
+.markdown-view-mode h3,
+.markdown-view-mode h4,
+.markdown-view-mode h5,
+.markdown-view-mode h6 {
+  color: var(--text-primary);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-view-mode p {
+  color: var(--text-primary);
+  margin: 0.5em 0;
+}
+
+.markdown-view-mode code {
+  background-color: var(--bg-primary);
+  color: #69b7ff;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.markdown-view-mode pre {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.markdown-view-mode pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.markdown-view-mode blockquote {
+  border-left: 3px solid var(--accent-color);
+  padding-left: 10px;
+  margin-left: 0;
+  color: var(--text-secondary);
+}
+
+.markdown-view-mode a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.markdown-view-mode a:hover {
+  text-decoration: underline;
+}
+
+.markdown-view-mode ul, .markdown-view-mode ol {
+  margin-left: 20px;
+  color: var(--text-primary);
+}
+
+.markdown-view-mode table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.markdown-view-mode th, .markdown-view-mode td {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  text-align: left;
+  color: var(--text-primary);
+}
+
+.markdown-view-mode th {
+  background-color: var(--bg-tertiary);
+  font-weight: bold;
+}
+
+.katex-display {
+  margin: 1em 0;
+}
+
+/* Ensure KaTeX formulas are visible in dark mode */
+.katex .base {
+  color: var(--text-primary) !important;
+}
+
+.katex .mord {
+  color: var(--text-primary) !important;
+}
+
+/* Scrollbar styling for dark theme */
+.markdown-preview::-webkit-scrollbar,
+.markdown-view-mode::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.markdown-preview::-webkit-scrollbar-track,
+.markdown-view-mode::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.markdown-preview::-webkit-scrollbar-thumb,
+.markdown-view-mode::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.markdown-preview::-webkit-scrollbar-thumb:hover,
+.markdown-view-mode::-webkit-scrollbar-thumb:hover {
+  background: #606060;
+}

@@ -1,0 +1,47 @@
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.whiteboard-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.whiteboard-canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  display: block;
+  touch-action: none;
+  pointer-events: all;
+  z-index: 1;
+}
+
+.whiteboard-canvas-overlay:active {
+  cursor: grabbing;
+}
+
+/* Different cursors for different tools */
+.canvas-container[data-tool="pen"] .whiteboard-canvas-overlay {
+  cursor: crosshair;
+}
+
+.canvas-container[data-tool="eraser"] .whiteboard-canvas-overlay {
+  cursor: crosshair;
+}
+
+.canvas-container[data-tool="rectangle"] .whiteboard-canvas-overlay,
+.canvas-container[data-tool="circle"] .whiteboard-canvas-overlay,
+.canvas-container[data-tool="line"] .whiteboard-canvas-overlay {
+  cursor: crosshair;
+}
